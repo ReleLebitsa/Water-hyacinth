@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Modal for adding a new plant -->
+    <div id="upload-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-modal">&times;</span>
+            <h2>Add new plant</h2>
+            <p>All fields marked by * are mandatory</p>
+            <div class="tab">
+                <button class="tablinks active" onclick="openTab(event, 'General')">GENERAL</button>
+                <button class="tablinks" onclick="openTab(event, 'Provenance')">PROVENANCE</button>
+            </div>
+            <div id="General" class="tabcontent">
+                <form>
+                    <input type="checkbox" id="species" name="species">
+                    <label for="species">Species (cultivar)</label><br>
+                    <input type="checkbox" id="cross" name="cross">
+                    <label for="cross">Cross</label><br>
+                    <input type="checkbox" id="hybrid" name="hybrid">
+                    <label for="hybrid">Hybrid (cultivar)</label><br>
+                    <input type="checkbox" id="nick" name="nick">
+                    <label for="nick">Nick/ trade name</label><br><br>
+                    <div class="upload-picture">
+                        <button type="button">Upload picture</button>
+                    </div>
+                </form>
+            </div>
+            <div id="Provenance" class="tabcontent">
+                <!-- Provenance content here -->
+            </div>
+        </div>
+    </div>
+ </body>
+</html>
