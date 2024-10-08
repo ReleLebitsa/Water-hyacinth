@@ -3,39 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload</title>
+    <title>Bio-Control Solutions</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Modal for adding a new plant -->
-    <div id="upload-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="close-modal">&times;</span>
-            <h2>Add new plant</h2>
-            <p>All fields marked by * are mandatory</p>
-            <div class="tab">
-                <button class="tablinks active" onclick="openTab(event, 'General')">GENERAL</button>
-                <button class="tablinks" onclick="openTab(event, 'Provenance')">PROVENANCE</button>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="img/bio-logo2.png" alt="Bio-Control Logo">
+                
             </div>
-            <div id="General" class="tabcontent">
-                <form>
-                    <input type="checkbox" id="species" name="species">
-                    <label for="species">Species (cultivar)</label><br>
-                    <input type="checkbox" id="cross" name="cross">
-                    <label for="cross">Cross</label><br>
-                    <input type="checkbox" id="hybrid" name="hybrid">
-                    <label for="hybrid">Hybrid (cultivar)</label><br>
-                    <input type="checkbox" id="nick" name="nick">
-                    <label for="nick">Nick/ trade name</label><br><br>
-                    <div class="upload-picture">
-                        <button type="button">Upload picture</button>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active"><img src="img/plant-fill.png" alt="Upload Icon" class="nav-icon"> Upload</a></li>
+                    <li><a href="#"><img src="img/round-dashboard.png" alt="Dashboard Icon" class="nav-icon"> Dashboard</a></li>
+                    <li><a href="#"><img src="img/community.png" alt="Community Icon" class="nav-icon"> Community</a></li>
+                    <li><a href="#"><img src="img/settings.png" alt="Settings Icon" class="nav-icon"> Settings</a></li>
+                </ul>
+            </nav>
+            
+        </aside>
+    
+        <!-- Main Content -->
+        <main class="content">
+            <h1>Assess a new leaf</h1>
+            <form class="form">
+                <div class="form-group">
+                    <label>Upload Images</label>
+                    <div class="upload-options">
+                        <!-- Upload Image from files -->
+                        <label class="upload-btn" for="upload-image"><span>📤</span> Upload Image</label>
+                        <input type="file" id="upload-image" name="file" accept="image/*" style="display: none;">
+                        
+                        <!-- Take Photo using camera -->
+                        <label class="upload-btn" for="take-photo"><span>📷</span> Take Photo</label>
+                        <input type="file" id="take-photo" accept="image/*" capture="camera" style="display: none;">
                     </div>
-                </form>
-            </div>
-            <div id="Provenance" class="tabcontent">
-                <!-- Provenance content here -->
-            </div>
-        </div>
+                    <p class="instructions">
+                        Instructions:
+                        <ul>
+                            <li>Ensure the calibration cube is visible in the image.</li>
+                            <li>Ensure the image is in a well lit environment.</li>
+                        </ul>
+                    </p>
+                </div>
+    
+                <div class="form-group">
+                    <label for="plant-name">Plant Name <span>*</span></label>
+                    <input type="text" id="plant-name" placeholder="Enter Name">
+                </div>
+    
+                <div class="form-group">
+                    <label for="notes">Notes/Remarks</label>
+                    <textarea id="notes" placeholder="Use this to describe its condition, history or specific features."></textarea>
+                </div>
+    
+                <button type="submit" class="submit-btn">Upload Image(s)</button>
+            </form>
+        </main>
     </div>
- </body>
+    
+    <!-- JavaScript to handle image previews (optional) -->
+    <script>
+        document.getElementById('upload-image').addEventListener('change', function() {
+            // Handle file upload from the file input
+            console.log('Image selected from files:', this.files[0]);
+        });
+    
+        document.getElementById('take-photo').addEventListener('change', function() {
+            // Handle image capture from camera
+            console.log('Image captured from camera:', this.files[0]);
+        });
+    </script>
+    
+    </div>
+</body>
 </html>
