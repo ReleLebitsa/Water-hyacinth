@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box; /* Ensures padding and borders are included in element's total width and height */
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%; /* Make sure the body takes up the full height of the viewport */
+    font-family: Arial, sans-serif;
+    background-color: white; /* Light gray background */
+}
+
+header {
+    background-color: #0CB505;  /* Bright green background */
+    padding: 10px 20px; /* Padding for header */
+}
+
+nav {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space out logo and links */
+}
+
+.logo img {
+    height: 50px; /* Set height for logo */
+}
+
+.nav-links {
+    display: flex;
+    align-items: center; /* Center links and buttons vertically */
+}
+
+nav a {
+    color: white; /* White text for navigation links */
+    margin: 0 15px; /* Margin between links */
+    text-decoration: none; /* Remove underline */
+}
+
+.sign-up{
+    background-color: white; /* White background for buttons */
+    color:#0CB505; /* Green text color for buttons */
+    border: none;
+    padding: 10px 15px; /* Padding for buttons */
+    margin-left: 10px; /* Margin for spacing */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+}
+.log-in {
+    background-color: #0CB505; /* White background for the button */
+    color: white; /* Green text color */
+    border: 1px solid grey; /* Grey border */
+    padding: 10px 15px; /* Padding for the button */
+    margin-left: 10px; /* Margin for spacing */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+}
+
+
+main {
+    padding: 20px; /* Padding for main content */
+}
+
+h2 {
+    color: #333; /* Dark gray color for headings */
+    margin-bottom: 10px; /* Spacing below heading */
+}
+
+p {
+    color: #555; /* Slightly lighter gray for paragraph text */
+    margin-bottom: 20px; /* Spacing below paragraph */
+}
+
+.forums {
+    background-color: white; /* White background for forums section */
+    padding: 20px; /* Padding inside forums section */
+   
+}
+
+.forums h3 {
+    color: #00b140; /* Green color for forums title */
+    margin-bottom: 15px; /* Spacing below forums title */
+}
+
+ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+}
+
+li {
+    margin-bottom: 15px; /* Spacing between list items */
+    padding-bottom: 15px; /* Padding inside list items */
+}
+
+li:nth-child(1), li:nth-child(2) {
+    border-bottom: 1px solid #ccc; /* Grey line under General and Getting Started */
+}
+
+li strong {
+    display: block; /* Make strong text a block element */
+    color: black; /* Green color for strong text */
+}
+
+li p {
+    margin: 5px 0 0 0; /* Spacing above the paragraph in list items */
+}
+.icon-circle {
+    display: inline-block; /* Makes the icon a block element */
+    width: 30px; /* Set width for the circle */
+    height: 30px; /* Set height for the circle */
+    border-radius: 50%; /* Makes it circular */
+    border: 1px solid grey; /* Grey border */
+    background-color: white; /* Set background color for the circle */
+    text-align: center; /* Centers the icon horizontally */
+    line-height: 30px; /* Centers the icon vertically */
+    margin-right: 10px; /* Space between icon and text */
+}
+
+.icon-circle i {
+    font-size: 16px; /* Adjust the icon size */
+    color: black; /* Set icon color */
+}
+

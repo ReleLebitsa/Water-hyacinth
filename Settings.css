@@ -1,0 +1,158 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #0CB505;
+    color: white;
+    padding: 20px;
+}
+
+.logo {
+    background-color: #0CB505;
+    padding: 10px; 
+    margin-bottom: 40px; 
+}
+
+.logo img {
+    width: 100%;
+    display: block; 
+}
+
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin-bottom: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px; 
+    width: 100%; 
+    box-sizing: border-box; 
+    transition: background-color 0.3s; 
+}
+
+nav ul li a:hover {
+    background-color: darkgreen;
+    border-radius: 5px solid darkgreen; 
+    border-radius: 5px;
+    
+
+}
+
+nav ul li.active a {
+    font-weight: bold;
+}
+
+
+.main-content {
+    flex: 1;
+    padding: 40px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.badge-text {
+    margin-left: 800px; 
+}
+
+.settings {
+    margin-top: 20px;
+    padding-left: 0; 
+}
+
+.form-group {
+    margin-bottom: 15px;
+    margin-left: 0; 
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: left; 
+}
+
+input[type="text"], input[type="email"], input[type="password"], select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group.two-cols {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-group.two-cols .form-group-item {
+    width: 48%;
+}
+
+/* Ensure the profile picture and badge are aligned */
+.profile-picture {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-picture img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.profile-picture .badge {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.pictures {
+    margin-top: 30px;
+}
+
+.picture-grid {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.picture-grid img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+/* Align the update button to the right corner */
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #0CB505;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    float: right;
+}
+
+button[type="submit"]:hover {
+    background-color: #0CB505;
+}

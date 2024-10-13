@@ -1,0 +1,18 @@
+import pandas as pd
+
+# Creating sample data for the CSV file
+data = {
+    'Name': ['John Doe', 'Jane Smith', 'Alice Johnson', 'Michael Brown', 'Emily Davis'],
+    'Email': ['john.doe@example.com', 'jane.smith@example.com', 'alice.johnson@example.com', 'michael.brown@example.com', 'emily.davis@example.com'],
+    'Type': ['Fern', 'Cactus', 'Orchid', 'Rose', 'Tulip'],
+    'Date': ['2024-01-15', '2024-02-20', '2024-03-10', '2024-03-22', '2024-04-02'],
+}
+
+# Create DataFrame
+df = pd.DataFrame(data)
+
+# Save DataFrame to CSV
+csv_file_path = '/mnt/data/plant-data.csv'
+df.to_csv(csv_file_path, index=False)
+
+csv_file_path

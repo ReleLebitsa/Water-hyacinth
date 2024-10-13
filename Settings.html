@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio-Control Solutions</title>
+    <link rel="stylesheet" href="Settings.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="./images/bio-logo2.png" alt="Bio-Control Solutions Logo">
+            </div>
+            <nav>
+                <ul>
+                <li><a href="Upload.html"><img src="./images/plant-fill.png" alt="plant-fill Icon" style="width: 24px; height: 24px; vertical-align: middle;" /> &nbsp;Upload</a></li>
+                <li><a href="Dashboard.html"><img src="./images/round-dashboard.png" alt="Dashboard Icon" style="width: 24px; height: 24px; vertical-align: middle;" />&nbsp;Dashboard</a></li>
+                <li><a href="CommunityDiscussions.html"><img src="./images/community.png" alt="Community Icon" style="width: 24px; height: 24px; vertical-align: middle;" /> &nbsp;Community</a></li>
+                <li><a href="Settings.html"><img src="./images/settings.png" alt="Settings Icon" style="width: 24px; height: 24px; vertical-align: middle;" /> &nbsp;Settings</a></li>
+                </ul>
+
+            </nav>
+        </aside>
+        <main class="main-content">
+            <section class="settings">
+                <h2>Settings</h2>
+                <div class="profile-picture">
+                    <img src="./images/profile-pic.jpg" alt="Profile Picture"> 
+                    <span class="badge-text">
+                        <img src="./images/plant-icon.png" alt="Plant Icon" style="width: 24px; height: 24px; vertical-align: middle;" />
+                        Plant Researcher Badge
+                    </span>
+                    
+                </div>
+    <form>
+        <div class="form-group two-cols">
+            <div class="form-group-item">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" placeholder="Crystal"  required>
+            </div>
+            <div class="form-group-item">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" placeholder="Kabinga" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="scientistcrys@example.com" required>
+        </div>
+        <div class="form-group">
+            <label for="location">Location</label>
+            <select id="location" placeholder="location" required>
+                <option>Select your location here</option>
+                <option value="New York">New York, USA</option>
+                <option value="London">London, UK</option>
+                <option value="Tokyo">Tokyo, Japan</option>
+                <option value="Johannesburg">Johannesburg, South Africa</option>
+                <option value="Sydney">Sydney, Australia</option>
+                <option value="Paris">Paris, France</option>
+                <option value="Toronto">Toronto, Canada</option>
+                <option value="Berlin">Berlin, Germany</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="password" required>
+        </div>
+        
+        <div class="pictures">
+            <h3>Pictures</h3>
+            <div class="picture-grid">
+                <img src="./images/Leaf Damage 1.jpg" alt="Leaf Damage 1">
+                <img src="./images/Leaf Damage 2.jfif" alt="Leaf Damage 2">
+                <img src="./images/Leaf Damage 3.jfif" alt="Leaf Damage 3">
+                <img src="./images/1.jpg" alt="1">
+                <img src="./images/water-hyacinth-damaged-leaf.jpg" alt="water-hyacinth-damaged-leaf 5">
+            </div>
+        </div>
+        <button type="submit">Update Settings</button>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
