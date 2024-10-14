@@ -54,3 +54,34 @@ h3 {
     font-size: 24px;
     color: #333;
 }
+
+/* Logout Button Styling */
+.logout-btn {
+    position: absolute; /* Absolute positioning */
+    top: 20px;          /* Move 20px from the top */
+    right: 20px;        /* Move 20px from the right */
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+.logout-btn:hover {
+    background-color: #218838;
+}
+
+/* Ensure responsiveness */
+@media screen and (max-width: 768px) {
+    .header-title {
+        font-size: 18px;
+    }
+    .logout-btn {
+        top: 10px;   /* Adjust position on smaller screens */
+        right: 10px; /* Adjust position on smaller screens */
+        padding: 8px 16px;
+    }
+}

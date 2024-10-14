@@ -156,3 +156,127 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #0CB505;
 }
+
+
+/* Container */
+.container {
+    display: flex;
+    height: 100%; /* Ensure container takes full height of the screen */
+    width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #0CB505; /* Green color */
+    color: white;
+    padding: 20px;
+    width: 250px; /* Default width for larger screens */
+    flex-shrink: 0;
+    height: 100vh; /* Full height sidebar */
+    overflow-y: auto; /* Allow sidebar to scroll if content overflows */
+}
+
+.sidebar .logo {
+    width: 100px; /* Scale the logo down for small screens */
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.logo img {
+    width: 100px;
+    height: 80px;
+}
+
+
+
+
+.sidebar h2 {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 20px;
+}
+
+.sidebar nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar nav ul li a.active {
+    font-weight: bold;
+}
+
+.sidebar nav ul li a span.icon {
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+/* Sidebar Hover Effect */
+.sidebar nav ul li a:hover {
+    background-color: #218838; /* Darken the background color on hover */
+    border-radius: 5px;
+    padding: 10px;
+    transition: background-color 0.3s ease-in-out; /* Smooth transition */
+}
+
+
+/* Header Section */
+.header {
+    position: relative; /* Important to position the logout button within this container */
+    padding: 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Title Styling */
+.header-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
+    display: inline-block;
+}
+
+/* Logout Button Styling */
+.logout-btn {
+    position: absolute; /* Absolute positioning */
+    top: 60px;          /* Move 20px from the top */
+    right: 45px;        /* Move 20px from the right */
+    
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+.logout-btn:hover {
+    background-color: #218838;
+}
+
+/* Ensure responsiveness */
+@media screen and (max-width: 768px) {
+    .header-title {
+        font-size: 18px;
+    }
+    .logout-btn {
+        top: 10px;   /* Adjust position on smaller screens */
+        right: 10px; /* Adjust position on smaller screens */
+        padding: 8px 16px;
+    }
+}

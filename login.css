@@ -1,0 +1,159 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+body, html {
+    height: 100%;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 1100px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.image-container {
+    flex: 1;
+    background: url('your-image-url.jpg') no-repeat center center;
+    background-size: cover;
+    height: 250px;
+}
+
+.login-form {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1em;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.checkbox-group input {
+    margin-right: 10px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+.social-login {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.social-login p {
+    margin: 15px 0;
+}
+
+.social-login button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.google-login {
+    background-color: #db4437;
+    color: white;
+}
+
+.google-login:hover {
+    background-color: #c23321;
+}
+
+.facebook-login {
+    background-color: #4267B2;
+    color: white;
+}
+
+.facebook-login:hover {
+    background-color: #365899;
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.register-link a {
+    color: #28a745;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles 
+@media (min-width: 768px) {
+    .login-container {
+        flex-direction: row;
+    }
+
+    .image-container {
+        flex: 1;
+        height: auto;
+    }
+
+    .login-form {
+        flex: 1;
+        padding: 40px 60px;
+    }
+}
+*/
