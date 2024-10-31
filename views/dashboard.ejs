@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio-Control Solutions Dashboard</title>
+    <link rel="stylesheet" href="/css/upload.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 240px;
+            background-color: #0CB505;
+            padding: 20px;
+            color: white;
+        }
+
+        .logo img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 20px 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: white;
+        }
+
+        .dashboard {
+            margin-top: 20px;
+        }
+
+        .dashboard-stats {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-item {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 30%;
+        }
+
+        .stat-item h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .stat-item p {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0CB505;
+        }
+
+        .charts {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .chart-item {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-item canvas {
+            width: 100%;
+            height: auto;
+        }
+
+        h3 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        @media (max-width: 768px) {
+            .charts {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-item {
+                width: 100%;
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="/images/bio-logo2.png" alt="Bio-Control Solutions Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/upload" class="active"><img src="/img/plant-fill.png" alt="Upload Icon" class="nav-icon"> Upload</a></li>
+                    <li><a href="/dashboard"><img src="/img/round-dashboard.png" alt="Dashboard Icon" class="nav-icon"> Dashboard</a></li>
+                    <li><a href="#"><img src="/img/community.png" alt="Community Icon" class="nav-icon"> Community</a></li>
+                    <li><a href="/settings"><img src="/img/settings.png" alt="Settings Icon" class="nav-icon"> Settings</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <section class="dashboard">
+                <h2>Dashboard</h2>
+                <button class="logout-btn">Logout</button>
+                <div class="dashboard-stats">
+                    <div class="stat-item">
+                        <h3>Total Uploads</h3>
+                        <p id="total-uploads">Loading...</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Community Discussions</h3>
+                        <p>45 Active</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Plant Research Achievements</h3>
+                        <p>12 Badges Earned</p>
+                    </div>
+                </div>
+
+                <div class="charts">
+                    <div class="chart-item">
+                        <h3>Uploads per Person</h3>
+                        <canvas id="uploadsPerPersonChart"></canvas>
+                    </div>
+                    <div class="chart-item">
+                        <h3>Upload Distribution</h3>
+                        <canvas id="uploadDistributionChart"></canvas>
+                    </div>
+                    <div class="chart-item">
+                        <h3>Upload Trends Over Time</h3>
+                        <canvas id="uploadTrendsChart"></canvas>
+                    </div>
+                    <div class="chart-item">
+                        <h3>Bio Control Damage Distribution</h3>
+                        <canvas id="bioControlDamageChart"></canvas>
+                    </div>
+                    <div class="chart-item">
+                        <h3>Estimated Plant Age Groups</h3>
+                        <canvas id="plantAgeGroupsChart"></canvas>
+                    </div>
+                </div>
+
+                <h3>Recently Uploaded Plants</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Plant Name</th>
+                            <th>Uploader</th>
+                            <th>Estimated Age</th>
+                            <th>Damage Caused by Bio Controls (%)</th>
+                            <th>Date Uploaded</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Water Hyphen</td>
+                            <td>Rorisang</td>
+                            <td>3 years</td>
+                            <td>20%</td>
+                            <td>2024-09-10</td>
+                        </tr>
+                        <tr>
+                            <td>Water Hyphen</td>
+                            <td>Relebogile</td>
+                            <td>2 years</td>
+                            <td>30%</td>
+                            <td>2024-09-11</td>
+                        </tr>
+                        <tr>
+                            <td>Water Hyphen</td>
+                            <td>Paul</td>
+                            <td>4 years</td>
+                            <td>15%</td>
+                            <td>2024-09-12</td>
+                        </tr>
+                        <tr>
+                            <td>Water Hyphen</td>
+                            <td>Windy</td>
+                            <td>1 year</td>
+                            <td>25%</td>
+                            <td>2024-09-13</td>
+                        </tr>
+                        <tr>
+                            <td>Water Hyphen</td>
+                            <td>Rivoningo</td>
+                            <td>5 years</td>
+                            <td>10%</td>
+                            <td>2024-09-14</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Uploads per Person Data
+        const uploadsPerPersonData = {
+            labels: ['Rorisang', 'Relebogile', 'Paul', 'Windy', 'Rivoningo'],
+            datasets: [{
+                label: 'Number of Uploads',
+                data: [5, 3, 4, 2, 6],
+                backgroundColor: '#36A2EB'
+            }]
+        };
+
+        const uploadsPerPersonChartCtx = document.getElementById('uploadsPerPersonChart').getContext('2d');
+        new Chart(uploadsPerPersonChartCtx, {
+            type: 'bar',
+            data: uploadsPerPersonData,
+            options: {
+                responsive: true,
+                animation: {
+                    animateScale: true
+                }
+            }
+        });
+
+        // Upload Distribution Pie Chart
+        const uploadDistributionData = {
+            labels: ['Rorisang', 'Relebogile', 'Paul', 'Windy', 'Rivoningo'],
+            datasets: [{
+                label: 'Upload Distribution',
+                data: [5, 3, 4, 2, 6],
+                backgroundColor: ['#0CB505', '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
+            }]
+        };
+
+        const uploadDistributionChartCtx = document.getElementById('uploadDistributionChart').getContext('2d');
+        new Chart(uploadDistributionChartCtx, {
+            type: 'pie',
+            data: uploadDistributionData,
+            options: {
+                responsive: true,
+                animation: {
+                    animateScale: true
+                }
+            }
+        });
+
+        // Upload Trends Over Time (Line Chart)
+        const uploadTrendsData = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September'],
+            datasets: [{
+                label: 'Plant Uploads',
+                data: [1, 3, 2, 5, 4, 6, 2, 3, 5],
+                fill: false,
+                borderColor: '#FF6384',
+                tension: 0.1
+            }]
+        };
+
+        const uploadTrendsChartCtx = document.getElementById('uploadTrendsChart').getContext('2d');
+        new Chart(uploadTrendsChartCtx, {
+            type: 'line',
+            data: uploadTrendsData,
+            options: {
+                responsive: true,
+                animation: {
+                    animateScale: true
+                }
+            }
+        });
+
+        // Bio Control Damage Distribution Pie Chart
+        const bioControlDamageData = {
+            labels: ['10%', '15%', '20%', '25%', '30%'],
+            datasets: [{
+                label: 'Bio Control Damage',
+                data: [1, 1, 1, 1, 1],
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF']
+            }]
+        };
+
+        const bioControlDamageChartCtx = document.getElementById('bioControlDamageChart').getContext('2d');
+        new Chart(bioControlDamageChartCtx, {
+            type: 'pie',
+            data: bioControlDamageData,
+            options: {
+                responsive: true,
+                animation: {
+                    animateScale: true
+                }
+            }
+        });
+
+        // Plant Age Groups (Bar Chart)
+        const plantAgeGroupsData = {
+            labels: ['1 Year', '2 Years', '3 Years', '4 Years', '5 Years'],
+            datasets: [{
+                label: 'Number of Plants',
+                data: [1, 1, 1, 1, 1],
+                backgroundColor: '#36A2EB'
+            }]
+        };
+
+        const plantAgeGroupsChartCtx = document.getElementById('plantAgeGroupsChart').getContext('2d');
+        new Chart(plantAgeGroupsChartCtx, {
+            type: 'bar',
+            data: plantAgeGroupsData,
+            options: {
+                responsive: true,
+                animation: {
+                    animateScale: true
+                }
+            }
+        });
+
+        // Update total uploads
+        document.getElementById('total-uploads').textContent = uploadsPerPersonData.datasets[0].data.reduce((a, b) => a + b, 0);
+    </script>
+</body>
+</html>

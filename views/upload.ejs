@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio-Control Solutions</title>
+    <link rel="stylesheet" href="/css/upload.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 240px;
+            background-color: #0CB505;
+            padding: 20px;
+            color: white;
+        }
+
+        .logo img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 20px 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="/images/bio-logo2.png" alt="Bio-Control Solutions Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/upload" class="active"><img src="/img/plant-fill.png" alt="Upload Icon" class="nav-icon"> Upload</a></li>
+                    <li><a href="/dashboard"><img src="/img/round-dashboard.png" alt="Dashboard Icon" class="nav-icon"> Dashboard</a></li>
+                    <li><a href="#"><img src="/img/community.png" alt="Community Icon" class="nav-icon"> Community</a></li>
+                    <li><a href="/settings"><img src="/img/settings.png" alt="Settings Icon" class="nav-icon"> Settings</a></li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1>Assess a new leaf</h1>
+            <button class="logout-btn">Logout</button>
+            <form class="form" action="/upload" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Upload Images</label>
+                    <div class="upload-options">
+                        <!-- Upload Image from files -->
+                        <label class="upload-btn" for="upload-image"><span>📤</span> Upload Image</label>
+                        <input type="file" id="upload-image" name="file" accept="image/*" style="display: none;">
+                        
+                        <!-- Take Photo using camera -->
+                        <label class="upload-btn" for="take-photo"><span>📷</span> Take Photo</label>
+                        <input type="file" id="take-photo" name="camera" accept="image/*" capture="camera" style="display: none;">
+                    </div>
+                    <p class="instructions">
+                        Instructions:
+                        <ul>
+                            <li>Ensure the calibration cube is visible in the image.</li>
+                            <li>Ensure the image is in a well-lit environment.</li>
+                        </ul>
+                    </p>
+                </div>
+    
+                <div class="form-group">
+                    <label for="plant-name">Plant Name <span>*</span></label>
+                    <input type="text" id="plant-name" name="plantName" placeholder="Enter Name" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="notes">Notes/Remarks</label>
+                    <textarea id="notes" name="notes" placeholder="Use this to describe its condition, history or specific features."></textarea>
+                </div>
+    
+                <button type="submit" class="submit-btn">Upload Image(s)</button>
+            </form>
+        </main>
+    </div>
+    
+    <!-- JavaScript to handle image previews (optional) -->
+    <script>
+        document.getElementById('upload-image').addEventListener('change', function() {
+            // Handle file upload from the file input
+            console.log('Image selected from files:', this.files[0]);
+        });
+    
+        document.getElementById('take-photo').addEventListener('change', function() {
+            // Handle image capture from camera
+            console.log('Image captured from camera:', this.files[0]);
+        });
+    </script>
+</body>
+</html>
