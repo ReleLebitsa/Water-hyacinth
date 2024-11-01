@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio-Control Solutions</title>
+    <link rel="stylesheet" href="/css/upload.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 240px;
+            background-color: #0CB505;
+            padding: 20px;
+            color: white;
+        }
+
+        .logo img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 20px 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="/images/bio-logo2.png" alt="Bio-Control Solutions Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/upload" class="active"><img src="/img/plant-fill.png" alt="Upload Icon" class="nav-icon"> Upload</a></li>
+                    <li><a href="/dashboard"><img src="/img/round-dashboard.png" alt="Dashboard Icon" class="nav-icon"> Dashboard</a></li>
+                    <li><a href="#"><img src="/img/community.png" alt="Community Icon" class="nav-icon"> Community</a></li>
+                    <li><a href="/plant"><img src="/img/data-icon.png" alt="Data Icon" class="nav-icon"> Plant Data</a></li>  <!--due for more edits, create a get response and connect to database-->
+                    <li><a href="/settings"><img src="/img/settings.png" alt="Settings Icon" class="nav-icon"> Profile</a></li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <!-- Main Content -->
+    </head>
+    <body>
+        
+            <!-- Main Content -->
+            <main class="main-content">
+                <h1>Uploaded Plants Data</h1>
+                <table id="data-table">
+                    <thead>
+                        <tr>
+                            <th>Plant Number</th>
+                            <th>Plant Name</th>
+                            <th>Notes</th>
+                            <th>Image</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <div class="no-data" id="no-data">No plant data available.</div>
+            </main>
+        </div>
+    
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const plantData = JSON.parse(localStorage.getItem('plantData')) || [];
+                const dataTableBody = document.querySelector('#data-table tbody');
+                const noDataMessage = document.getElementById('no-data');
+    
+                if (plantData.length === 0) {
+                    noDataMessage.style.display = 'block';
+                } else {
+                    noDataMessage.style.display = 'none';
+                    plantData.forEach(plant => {
+                        const row = document.createElement('tr');
+                        const imageUrl = plant.ImageUrl ? plant.ImageUrl : URL.createObjectURL(plant.ImageFile);
+                        row.innerHTML = `
+                            <td>${plant.PlantNumber}</td>
+                            <td>${plant.PlantName}</td>
+                            <td>${plant.Notes}</td>
+                            <td><img src="${imageUrl}" alt="Plant Image" style="width: 100px; height: auto;"></td>
+                        `;
+                        dataTableBody.appendChild(row);
+                    });
+                }
+            });
+        </script>
+</body>
+</html>

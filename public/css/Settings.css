@@ -1,64 +1,89 @@
-body {
-    font-family: Arial, sans-serif;
+/*Upload Plant damage for assessment*/
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body, html {
+    height: 100%; /* Ensure body and html take full height */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Container */
 .container {
     display: flex;
+    height: 100%; /* Ensure container takes full height of the screen */
     width: 100%;
 }
 
+/* Sidebar */
 .sidebar {
-    width: 250px;
-    background-color: #0CB505;
+    background-color: #0CB505; /* Green color */
     color: white;
     padding: 20px;
+    width: 250px; /* Default width for larger screens */
+    flex-shrink: 0;
+    height: 100vh; /* Full height sidebar */
+    overflow-y: auto; /* Allow sidebar to scroll if content overflows */
 }
 
-.logo {
-    background-color: #0CB505;
-    padding: 10px; 
-    margin-bottom: 40px; 
+.sidebar .logo {
+    width: 100px; /* Scale the logo down for small screens */
+    display: block;
+    margin: 0 auto 10px;
 }
 
 .logo img {
-    width: 100%;
-    display: block; 
+    width: 100px;
+    height: 80px;
 }
 
+.sidebar h2 {
+    text-align: center;
+    font-size: 1.5rem;
+}
 
-nav ul {
+.sidebar nav ul {
     list-style: none;
     padding: 0;
-    margin: 0;
 }
 
-nav ul li {
+.sidebar nav ul li {
     margin-bottom: 20px;
 }
 
-nav ul li a {
+.sidebar nav ul li a {
     color: white;
     text-decoration: none;
-    font-size: 18px;
-    display: block;
-    padding: 10px; 
-    width: 100%; 
-    box-sizing: border-box; 
-    transition: background-color 0.3s; 
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
 }
 
-nav ul li a:hover {
-    background-color: darkgreen;
-    border-radius: 5px solid darkgreen; 
-    border-radius: 5px;
-    
-
-}
-
-nav ul li.active a {
+.sidebar nav ul li a.active {
     font-weight: bold;
 }
 
+.sidebar nav ul li a span.icon {
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+/* Sidebar Hover Effect */
+.sidebar nav ul li a:hover {
+    background-color: #218838; /* Darken the background color on hover */
+    border-radius: 5px;
+    padding: 10px;
+    transition: background-color 0.3s ease-in-out; /* Smooth transition */
+}
 
 .main-content {
     flex: 1;

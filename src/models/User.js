@@ -1,13 +1,25 @@
-// In models/User.js
+// models/User.js
+
 const mongoose = require('mongoose');
-const { loginDB } = require('../config')(); // Access loginDB connection
 
 const UserSchema = new mongoose.Schema({
-    name: {
+    firstName: {
+        type: String,
+        required: true
+    },
+    lastName: {
+        type: String,
+        required: true
+    },
+    email: {
         type: String,
         required: true,
+        unique: true
     },
-    // Additional fields like email and password can be added
+    password: {
+        type: String,
+        required: true
+    }
 });
 
-module.exports = loginDB.model('User', UserSchema);
+module.exports = mongoose.model('User', UserSchema);
